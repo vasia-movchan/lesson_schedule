@@ -86,7 +86,7 @@ a:hover {
 }
 
 /* Media query for mobile devices */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .container {
     flex-direction: column;
     padding: 10px;
