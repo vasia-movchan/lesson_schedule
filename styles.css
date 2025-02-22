@@ -2,47 +2,58 @@
 
 :root {
   --font: "Arsenal SC";
+  --primary-bg: #f8f9fa;
+  --secondary-bg: #e9ecef;
+  --border-color: #343a40;
+  --text-color: #212529;
+  --link-color: #111e91;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font), sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
 h3 {
-  padding: 10px 0 10px 0;
+  padding: 10px 0;
 }
 
 .title {
   text-align: center;
-  font-family: var(--font);
   font-size: 2rem;
+  margin-top: 20px;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 15px;
-  font-family: "Arsenal SC";
-  font-size: 16px;
 }
 
 .column {
-  background-color: bisque;
+  background-color: var(--secondary-bg);
   width: 100%;
   text-align: center;
-  border: 1px black solid;
+  border: 1px solid var(--border-color);
+  margin: 5px;
+  border-radius: 8px;
 }
 
 .row {
   min-width: 30px;
   min-height: 82px;
-  height: fit-content;
-  box-sizing: border-box;
-  background-color: #ffebcd;
-  border: 1px black solid;
+  background-color: var(--primary-bg);
+  border-bottom: 1px solid var(--border-color);
   padding: 10px 6px;
   text-align: left;
   display: flex;
@@ -52,9 +63,50 @@ h3 {
 }
 
 .row.heading {
+  background-color: var(--border-color);
+  color: #fff;
   text-align: center;
+  font-size: 1rem;
+  padding: 15px 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .row:nth-child(even) {
-  background-color: #d6c3a6;
+  background-color: var(--secondary-bg);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 320px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .column {
+    margin: 10px 0;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .row {
+    font-size: 14px;
+    padding: 8px 4px;
+  }
+
+  .row.heading {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
 }
