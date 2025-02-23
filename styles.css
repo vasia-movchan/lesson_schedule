@@ -87,17 +87,17 @@ h3 {
 
 .row.heading::before {
   left: 50px;
-  background-image: url('img/down.svg'); /* Down arrow */
+  background-image: url('img/up.svg'); /* Down arrow */
 }
 
 .row.heading::after {
   right: 50px;
-  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="18 15 12 9 6 15"%3E%3C/polyline%3E%3C/svg%3E'); /* Down arrow */
+  background-image: url('img/up.svg'); /* Down arrow */
 }
 
 .column.collapsed .row.heading::before,
 .column.collapsed .row.heading::after {
-  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"%3E%3C/polyline%3E%3C/svg%3E'); /* Up arrow */
+  background-image: url('img/down.svg'); /* Up arrow */
   transform: rotate(0deg);
 }
 
