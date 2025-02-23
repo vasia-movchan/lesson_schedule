@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-  --font: "Arsenal SC";
+  --font: 'Arsenal SC';
   --primary-bg: #f8f9fa;
   --secondary-bg: #e9ecef;
-  --border-color: #343a40;
+  --border-color: #818488;
   --text-color: #212529;
   --link-color: #111e91;
 }
@@ -38,22 +38,23 @@ h3 {
   max-width: 1200px;
   margin: 20px auto;
   padding: 15px;
+  background-color: var(--border-color);
+  border-radius: 8px;
 }
 
 .column {
   background-color: var(--secondary-bg);
   width: 100%;
   text-align: center;
-  border: 1px solid var(--border-color);
   margin: 5px;
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .row {
   min-width: 30px;
   min-height: 82px;
   background-color: var(--primary-bg);
-  border-bottom: 1px solid var(--border-color);
   padding: 10px 6px;
   text-align: left;
   display: flex;
@@ -63,13 +64,36 @@ h3 {
 }
 
 .row.heading {
-  background-color: var(--border-color);
+  background-color: var(--text-color);
   color: #fff;
   text-align: center;
   font-size: 1rem;
   padding: 15px 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.row.heading::after,
+.row.heading::before {
+  content: '\2B9D'; /* Down arrow */
+  position: absolute;
+  /* right: 80px; */
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.row.heading::before {
+  left: 50px;
+}
+
+.row.heading::after {
+  right: 50px;
+}
+
+.column.collapsed .row.heading::after,
+.column.collapsed .row.heading::before {
+  content: '\2B9F'; /* Up arrow */
+  transform: rotate(0deg);
 }
 
 .row:nth-child(even) {
@@ -108,5 +132,25 @@ a:hover {
   .row.heading {
     font-size: 1rem;
     padding: 10px 0;
+  }
+
+  .column.collapsed .row:not(.heading) {
+    display: none;
+  }
+
+  .column {
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+  }
+
+  .column.collapsed {
+    max-height: 82px; /* Adjust this value as needed */
+  }
+}
+
+@media (min-width: 481px) {
+  .row.heading::before,
+  .row.heading::after {
+    display: none;
   }
 }
